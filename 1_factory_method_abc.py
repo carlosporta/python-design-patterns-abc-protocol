@@ -30,8 +30,9 @@ class ShapeFactory:
         return Circle() if shape_type == 'circle' else Rectangle()
 
 
-shape_factory = ShapeFactory()
-shape_type = input('Type a shape name (rectangle (fallback) or circle): ')
-shape = shape_factory.create(shape_type)
-classname = type(shape).__name__
-print(f'The area of this {classname} is {shape.area():.2f}')
+if __name__ == '__main__':
+    shape_factory = ShapeFactory()
+    shape_type = input('Type a shape name (rectangle (fallback) or circle): ')
+    shape = shape_factory.create(shape_type)
+    classname = type(shape).__name__
+    print(f'The area of this {classname} is {shape.area():.2f}')
