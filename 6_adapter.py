@@ -1,8 +1,8 @@
-from abc import abstractmethod
+from abc import ABC, abstractmethod
 from typing import Iterable
 
 
-class IReportItem:
+class IReportItem(ABC):
     @property
     @abstractmethod
     def name(self) -> str:
