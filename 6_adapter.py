@@ -22,13 +22,14 @@ class Report:
     def __init__(self, items: Iterable[IReportItem]) -> None:
         self.items = items
 
-    def display(self):
+    def display(self) -> None:
         print('Items')
-        [print(f"Name: {item.name}") for item in self.items]
+        for item in self.items:
+            print(f"Name: {item.name}")
 
 
 class Item:
-    def __init__(self, title) -> None:
+    def __init__(self, title: str) -> None:
         self.title = title
 
 
@@ -37,7 +38,7 @@ class ReportItemAdapter(IReportItem):
         self.item = item
 
     @property
-    def name(self):
+    def name(self) -> str:
         return self.item.title
 
 

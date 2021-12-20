@@ -116,7 +116,7 @@ class CheeseSaladBuilder(BurgerBuilder):
 
 
 class Director():
-    def set_builder(self, builder: BurgerBuilder):
+    def set_builder(self, builder: BurgerBuilder) -> None:
         self.builder = builder
 
     def get_burger(self) -> Burguer:

@@ -2,9 +2,9 @@ from typing import Any, Dict
 
 
 class Singleton(type):
-    _instances: Dict[str, 'Singleton'] = {}
+    _instances: Dict[type, "Singleton"] = {}
 
-    def __call__(cls, *args, **kwargs):
+    def __call__(cls: "Singleton", *args: Any, **kwargs: Any) -> type:
         if cls not in cls._instances:
             cls._instances[cls] = super(Singleton, cls).__call__(*args, **kwargs)
         return cls._instances[cls]
@@ -16,9 +16,8 @@ class AudioPlayer(metaclass=Singleton):
     def __init__(self) -> None:
         self.current_song = ''
 
-    def play(self, song_name):
+    def play(self, song_name: str) -> None:
         self.current_song = song_name
-
 
 
 audio_player = AudioPlayer()
