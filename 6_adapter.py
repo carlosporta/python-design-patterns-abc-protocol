@@ -41,8 +41,9 @@ class ReportItemAdapter(IReportItem):
         return self.item.title
 
 
-items = (ReportItemAdapter(Item('Foo')),
-        ReportItemAdapter(Item('Bar')),
-        ReportItemAdapter(Item('Foobar')))
-report = Report(items)
-report.display()
+if __name__ == '__main__':
+    items = (ReportItemAdapter(Item('Foo')),
+            ReportItemAdapter(Item('Bar')),
+            ReportItemAdapter(Item('Foobar')))
+    report = Report(items)
+    report.display()
