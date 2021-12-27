@@ -1,10 +1,9 @@
 from abc import ABC, abstractmethod
 from copy import deepcopy
-from typing import TypeVar
 
 
 class Cloneable(ABC):
-    def clone(self) -> 'Cloneable':
+    def clone(self) -> "Cloneable":
         return deepcopy(self)
 
 
@@ -34,7 +33,7 @@ class Rectangle(Shape):
 
     def render(self) -> str:
         return f"Rendering a Rectangle of width {self.width} and lenght {self.lenght}"
-        
+
 
 class ShapeCache:
     def __init__(self) -> None:

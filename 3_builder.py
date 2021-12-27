@@ -11,7 +11,14 @@ class Burguer:
     bacon_grams: float
     cheese_grams: float
 
-    def __init__(self, name: str, lettuce_grams: float, tomato_grams: float, bacon_grams: float, cheese_grams: float) -> None:
+    def __init__(
+        self,
+        name: str,
+        lettuce_grams: float,
+        tomato_grams: float,
+        bacon_grams: float,
+        cheese_grams: float,
+    ) -> None:
         self.name = name
         self.lettuce_grams = lettuce_grams
         self.tomato_grams = tomato_grams
@@ -29,19 +36,19 @@ class BurgerBuilder(ABC):
     @abstractmethod
     def build_name(self, name: str) -> None:
         raise NotImplementedError
-    
+
     @abstractmethod
     def build_lettuce_grams(self, grams: float) -> None:
         raise NotImplementedError
-    
+
     @abstractmethod
     def build_tomato_grams(self, grams: float) -> None:
         raise NotImplementedError
-    
+
     @abstractmethod
     def build_bacon_grams(self, grams: float) -> None:
         raise NotImplementedError
-    
+
     @abstractmethod
     def build_cheese_grams(self, grams: float) -> None:
         raise NotImplementedError
@@ -52,12 +59,11 @@ class BurgerBuilder(ABC):
 
 
 class CheeseBaconBuilder(BurgerBuilder):
-
     def __init__(self) -> None:
         self._reset()
 
     def _reset(self) -> None:
-        self.burger = Burguer('', 0, 0, 0, 0)
+        self.burger = Burguer("", 0, 0, 0, 0)
 
     def build_name(self, name: str) -> None:
         self.burger.name = name
@@ -73,9 +79,9 @@ class CheeseBaconBuilder(BurgerBuilder):
 
     def build_cheese_grams(self, grams: float) -> None:
         self.burger.cheese_grams = grams
-        
+
     def build(self) -> Burguer:
-        self.build_name('Cheese Bacon')
+        self.build_name("Cheese Bacon")
         self.build_lettuce_grams(GramQuantity.LITTLE.value)
         self.build_tomato_grams(GramQuantity.LITTLE.value)
         self.build_bacon_grams(GramQuantity.ALOT.value)
@@ -84,12 +90,11 @@ class CheeseBaconBuilder(BurgerBuilder):
 
 
 class CheeseSaladBuilder(BurgerBuilder):
-
     def __init__(self) -> None:
         self._reset()
 
     def _reset(self) -> None:
-        self.burger = Burguer('', 0, 0, 0, 0)
+        self.burger = Burguer("", 0, 0, 0, 0)
 
     def build_name(self, name: str) -> None:
         self.burger.name = name
@@ -105,9 +110,9 @@ class CheeseSaladBuilder(BurgerBuilder):
 
     def build_cheese_grams(self, grams: float) -> None:
         self.burger.cheese_grams = grams
-        
+
     def build(self) -> Burguer:
-        self.build_name('Cheese Salad')
+        self.build_name("Cheese Salad")
         self.build_lettuce_grams(GramQuantity.ALOT.value)
         self.build_tomato_grams(GramQuantity.ALOT.value)
         self.build_bacon_grams(GramQuantity.LITTLE.value)
@@ -115,14 +120,14 @@ class CheeseSaladBuilder(BurgerBuilder):
         return self.burger
 
 
-class Director():
+class Director:
     def set_builder(self, builder: BurgerBuilder) -> None:
         self.builder = builder
 
     def get_burger(self) -> Burguer:
         return self.builder.build()
 
-        
+
 cheese_bacon_builder = CheeseBaconBuilder()
 cheese_salad_builder = CheeseSaladBuilder()
 director = Director()

@@ -3,6 +3,7 @@ from typing import Any, Union
 
 BIG_LIST_SIZE = 5_000
 
+
 class ResourceIntensive:
     def __init__(self) -> None:
         self.big_list = tuple(range(BIG_LIST_SIZE))
@@ -21,7 +22,10 @@ class ResourceSaver:
 def getmbsizeof(obj: Any) -> float:
     return getsizeof(obj) / 1024 / 1024
 
-def get_resource_usage(resources: Union[list[ResourceIntensive], list[ResourceSaver]]) -> float:
+
+def get_resource_usage(
+    resources: Union[list[ResourceIntensive], list[ResourceSaver]]
+) -> float:
     last_looped_resource = resources[0]
     sizes = [getmbsizeof(last_looped_resource)]
     for r in resources[1:]:
@@ -40,6 +44,3 @@ if __name__ == "__main__":
     resource_saver_list = [ResourceSaver() for i in range(BIG_LIST_SIZE)]
     mbsize = get_resource_usage(resource_saver_list)
     print(f"Flyweight: {mbsize}MB")
-
-
-

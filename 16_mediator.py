@@ -81,7 +81,7 @@ if __name__ == "__main__":
     print(f"User: {travel.user.name}")
     print(f"Traveling with: {travel.driver.name}")
     print(f"Destiny: {travel.destiny}")
-    
+
     print()
 
     print("Current status")

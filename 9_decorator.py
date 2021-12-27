@@ -9,7 +9,7 @@ class Notifier(ABC):
 
 class NotifierDecorator(Notifier):
     def __init__(self, notifier: Notifier) -> None:
-        self.__notifier = notifier        
+        self.__notifier = notifier
 
     def notify(self) -> None:
         self.__notifier.notify()
@@ -17,17 +17,17 @@ class NotifierDecorator(Notifier):
 
 class WhatsappNotifier(Notifier):
     def notify(self) -> None:
-        print(f'Notifying through Whatsapp')
+        print("Notifying through Whatsapp")
 
 
 class SMSNotifier(Notifier):
     def notify(self) -> None:
-        print(f'Notifying through SMS')
+        print("Notifying through SMS")
 
 
 class EmailNotifier(Notifier):
     def notify(self) -> None:
-        print(f'Notifying through Email')
+        print("Notifying through Email")
 
 
 class WhatsappNotifierDecorator(NotifierDecorator):
@@ -48,6 +48,7 @@ class SMSNotifierDecorator(NotifierDecorator):
     def notify(self) -> None:
         self.__notifier.notify()
         super().notify()
+
 
 class EmailNotifierDecorator(NotifierDecorator):
     def __init__(self, notifier: Notifier) -> None:

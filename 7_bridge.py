@@ -18,11 +18,11 @@ class Square(Shape):
         super().__init__(color)
 
 
-if __name__ == '__main__':
-    blue = Color('blue')
-    red = Color('red')
+if __name__ == "__main__":
+    blue = Color("blue")
+    red = Color("red")
     blue_circle = Circle(blue)
     red_square = Square(red)
 
-    print(f'Circle: {blue_circle.color.value}')
-    print(f'Square: {red_square.color.value}')
+    print(f"Circle: {blue_circle.color.value}")
+    print(f"Square: {red_square.color.value}")

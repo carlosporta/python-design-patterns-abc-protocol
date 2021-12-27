@@ -2,19 +2,19 @@ from abc import ABC, abstractmethod
 
 
 class TaxCalculator(ABC):
-    abstractmethod
+    @abstractmethod
     def calculate_tax_price(self, price: float) -> float:
         raise NotImplementedError
 
 
 class OldTaxCalculator(TaxCalculator):
     def calculate_tax_price(self, price: float) -> float:
-        return .01 * price
+        return 0.01 * price
 
 
 class NewTaxCalculator(TaxCalculator):
     def calculate_tax_price(self, price: float) -> float:
-        return .02 * price + 2
+        return 0.02 * price + 2
 
 
 class Invoice:

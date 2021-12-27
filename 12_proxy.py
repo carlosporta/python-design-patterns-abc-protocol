@@ -2,12 +2,11 @@ from abc import ABC, abstractmethod
 from time import sleep
 from random import choices, randint
 from string import ascii_lowercase
-from typing import Union
 
 
 def random_name() -> str:
     size = randint(4, 8)
-    return ''.join(choices(ascii_lowercase, k=size))
+    return "".join(choices(ascii_lowercase, k=size))
 
 
 class User:
@@ -32,7 +31,7 @@ class IUserRepository(ABC):
 
 class UserRepository(IUserRepository):
     def __init__(self) -> None:
-        self._users = {i:User(i, random_name()) for i in range(10)}
+        self._users = {i: User(i, random_name()) for i in range(10)}
 
     @property
     def users(self) -> dict[int, User]:

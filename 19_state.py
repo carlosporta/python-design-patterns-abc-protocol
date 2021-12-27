@@ -27,7 +27,7 @@ class Moderation(State):
         # simulate a moderation
         self.content = self.content.replace("ERROR", "FIXED")
         return Published(self.content)
-    
+
 
 class Draft(State):
     def __init__(self, content: str) -> None:

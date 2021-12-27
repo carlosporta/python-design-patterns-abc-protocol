@@ -27,7 +27,7 @@ class GroupContact(Contact):
         self.contacts = contacts
 
     def send_message(self, text: str) -> None:
-        print('-' * 40)
+        print("-" * 40)
         print(f"Group: {self.name}")
         for c in self.contacts:
             c.send_message(text)

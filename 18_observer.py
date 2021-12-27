@@ -38,7 +38,7 @@ class OnChangeObserver(Observer):
 
     def update(self, event: str, old: int, new: int) -> None:
         self.callback(event, old, new)
-            
+
 
 class Value:
     def __init__(self, value: int) -> None:
@@ -69,16 +69,23 @@ class Value:
 def on_value_increased(old: int, new: int) -> None:
     print(f"Value increased from {old} to {new}")
 
+
 def on_value_decreased(old: int, new: int) -> None:
     print(f"Value decreased from {old} to {new}")
+
 
 def on_value_changed(event: str, old: int, new: int) -> None:
     print(f"Event: {event} from {old} to {new}")
 
+
 if __name__ == "__main__":
     value = Value(10)
-    value.add_observer(OnIncreaseObserver(lambda _, old, new: on_value_increased(old, new)))
-    value.add_observer(OnDecreaseObserver(lambda _, old, new: on_value_decreased(old, new)))
+    value.add_observer(
+        OnIncreaseObserver(lambda _, old, new: on_value_increased(old, new))
+    )
+    value.add_observer(
+        OnDecreaseObserver(lambda _, old, new: on_value_decreased(old, new))
+    )
     value.add_observer(OnChangeObserver(on_value_changed))
 
     value.increase()

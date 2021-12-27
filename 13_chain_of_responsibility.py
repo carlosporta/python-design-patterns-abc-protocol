@@ -1,4 +1,4 @@
-from typing import Any, Union
+from typing import Union
 
 
 class LoanApprover:
@@ -16,10 +16,10 @@ class LoanApprover:
     def handle(self, amount: float) -> Union["LoanApprover", None]:
         if amount <= self._max_loan_amount:
             return self
-        
+
         if hasattr(self, "next_handler"):
             return self.next_handler.handle(amount)
-        
+
         return None
 
 
@@ -40,9 +40,9 @@ class LoanApprovalChain:
 
 
 if __name__ == "__main__":
-    employee = LoanApprover(10, 'Employee <= 10')
-    manager = LoanApprover(20, 'Manager <= 20')
-    director = LoanApprover(30, 'Director <= 30')
+    employee = LoanApprover(10, "Employee <= 10")
+    manager = LoanApprover(20, "Manager <= 20")
+    director = LoanApprover(30, "Director <= 30")
     manager.set_next(director)
     employee.set_next(manager)
 

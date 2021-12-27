@@ -20,6 +20,7 @@ def generate_book(number_of_pages: int) -> Book:
     book = Book(pages)
     return book
 
+
 book = generate_book(5)
 
 for page in book:

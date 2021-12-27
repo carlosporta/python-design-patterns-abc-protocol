@@ -23,7 +23,7 @@ class Report:
         self.items = items
 
     def display(self) -> None:
-        print('Items')
+        print("Items")
         for item in self.items:
             print(f"Name: {item.name}")
 
@@ -42,9 +42,11 @@ class ReportItemAdapter(IReportItem):
         return self.item.title
 
 
-if __name__ == '__main__':
-    items = (ReportItemAdapter(Item('Foo')),
-            ReportItemAdapter(Item('Bar')),
-            ReportItemAdapter(Item('Foobar')))
+if __name__ == "__main__":
+    items = (
+        ReportItemAdapter(Item("Foo")),
+        ReportItemAdapter(Item("Bar")),
+        ReportItemAdapter(Item("Foobar")),
+    )
     report = Report(items)
     report.display()
